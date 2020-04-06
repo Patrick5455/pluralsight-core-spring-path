@@ -4,12 +4,15 @@ import com.pluralsight.model.Speaker;
 import com.pluralsight.repository.HibernateSpeakerRepositoryImpl;
 import com.pluralsight.repository.SpeakerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service("speakerService")
+//@Scope(value = BeanDefinition.SCOPE_SINGLETON)
 public class SpeakerServiceImpl implements SpeakerService {
 
 
@@ -17,6 +20,7 @@ public class SpeakerServiceImpl implements SpeakerService {
 
 
     //constructors
+    @Autowired
     public SpeakerServiceImpl (SpeakerRepository repository){
         System.out.println("SpeakerServiceImpl repository constructor ");
         this.repository = repository;
@@ -27,7 +31,6 @@ public class SpeakerServiceImpl implements SpeakerService {
     }
 
     //setter for repository
-    @Autowired
     public void setRepository(SpeakerRepository repository) {
         System.out.println("We are in the setter");
         this.repository = repository;
