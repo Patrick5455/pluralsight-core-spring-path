@@ -12,8 +12,7 @@ public class Application {
       //  SpeakerService service = new SpeakerServiceImpl();
 
 
-        SpeakerService service = ctx.getBean("speakerService",SpeakerService.class);
-
+        SpeakerService service = ctx.getBean("speakerServiceConstructor",SpeakerService.class);
 
         System.out.println(service.findAll().get(0).getFirstName());
 

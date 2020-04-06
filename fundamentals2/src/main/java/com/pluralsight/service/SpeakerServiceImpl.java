@@ -12,6 +12,16 @@ public class SpeakerServiceImpl implements SpeakerService {
     private SpeakerRepository repository;
 
 
+    //constructor
+    public SpeakerServiceImpl (SpeakerRepository repository){
+
+        this.repository = repository;
+    }
+
+    public SpeakerServiceImpl (){
+    }
+
+    //setter for repository
     public void setRepository(SpeakerRepository repository) {
         this.repository = repository;
     }

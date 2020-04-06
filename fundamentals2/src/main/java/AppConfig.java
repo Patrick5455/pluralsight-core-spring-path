@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
 
 
-
+    //setter injection
     @Bean(name = "speakerService")
     public SpeakerService getSpeakerService(){
 
@@ -18,12 +18,19 @@ public class AppConfig {
        return service;
     }
 
-    @Bean(name = "speakerRepository")
-    public SpeakerRepository getSpeakerRepository(){
+    //constructor injection
+    @Bean(name = "speakerServiceConstructor")
+    public SpeakerService getSpeakerService2(){
 
-        return new HibernateSpeakerRepositoryImpl();
-
+        SpeakerService service = new SpeakerServiceImpl(getSpeakerRepository());
+        return service;
     }
 
+
+    // create repository
+    @Bean(name = "speakerRepository")
+    public SpeakerRepository getSpeakerRepository(){
+        return new HibernateSpeakerRepositoryImpl();
+    }
 
 }
