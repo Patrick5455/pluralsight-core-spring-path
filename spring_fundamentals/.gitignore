@@ -1,0 +1,6 @@
+*.xml
+*.class
+*.classpath
+/.gitignore
+/.idea
+/pom.xml
