@@ -13,8 +13,13 @@ public class Application {
 
 
         SpeakerService service = ctx.getBean("speakerServiceConstructor",SpeakerService.class);
+        SpeakerService service2 = ctx.getBean("speakerServiceConstructor",SpeakerService.class);
 
+        //print object addresses to test if singleton scope works
+        System.out.println(service);
         System.out.println(service.findAll().get(0).getFirstName());
+        System.out.println(service2);
+
 
     }
 }
