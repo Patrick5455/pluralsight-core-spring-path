@@ -7,6 +7,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.*;
 
 @Configuration
+@ComponentScan({"com.pluralsight"})
 public class AppConfig {
 
 
@@ -31,21 +32,21 @@ public class AppConfig {
 
 
     //using setter and @Autowired for injection
-    @Bean(name = "getSpeakerServiceAutoWired" )
-    @Scope(value = BeanDefinition.SCOPE_SINGLETON)
-    public SpeakerService getSpeakerServiceAutoWired(){
-        SpeakerService service = new SpeakerServiceImpl();
-        return service;
-    }
+//    @Bean(name = "getSpeakerServiceAutoWired" )
+//    @Scope(value = BeanDefinition.SCOPE_SINGLETON)
+//    public SpeakerService getSpeakerServiceAutoWired(){
+//        SpeakerService service = new SpeakerServiceImpl();
+//        return service;
+//    }
 
 
 
     // create repository
-    @Bean(name = "speakerRepository")
-    public SpeakerRepository getSpeakerRepository(){
-        return new HibernateSpeakerRepositoryImpl();
-
-        //if it prints "We are in the setter", then it was autowired into the bean upon creation
-    }
+//    @Bean(name = "speakerRepository")
+//    public SpeakerRepository getSpeakerRepository(){
+//        return new HibernateSpeakerRepositoryImpl();
+//
+//        //if it prints "We are in the setter", then it was autowired into the bean upon creation
+//    }
 
 }
