@@ -23,7 +23,8 @@ public class AppConfig {
     //constructor injection
     @Bean(name = "speakerServiceConstructor")
     //@Scope(value = "singleton")
-    @Scope(value = BeanDefinition.SCOPE_SINGLETON)
+    //@Scope(value = BeanDefinition.SCOPE_SINGLETON)
+    @Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
     public SpeakerService getSpeakerService2(){
 
         SpeakerService service = new SpeakerServiceImpl(getSpeakerRepository());
