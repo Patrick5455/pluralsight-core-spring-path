@@ -13,7 +13,15 @@ public class SpeakerServiceImpl implements SpeakerService {
     public List<Speaker> findAll(){ return repository.findAll(); }
 
 
+    public SpeakerServiceImpl(){}
+
+    public SpeakerServiceImpl (SpeakerRepository repository){
+        this.repository = repository;
+    }
+
+    //setter for xml injection of Repository
     public void setSpeakerRepository(SpeakerRepository repository){
+
         this.repository = repository;
     }
 

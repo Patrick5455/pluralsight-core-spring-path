@@ -9,7 +9,7 @@ public class Application {
 
         ApplicationContext ctx =  new ClassPathXmlApplicationContext ("applicationContext.xml");
 
-        SpeakerService service = ctx.getBean("speakerService", SpeakerServiceImpl.class);
+        SpeakerService service = ctx.getBean("speakerService", SpeakerService.class);
 
         System.out.println(service.findAll().get(0).getFirstName());
 
