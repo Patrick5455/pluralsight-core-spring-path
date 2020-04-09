@@ -1,11 +1,14 @@
 package com.pluralsight.conferencedemo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "speakers")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Speaker {
 
     @Id
@@ -29,6 +32,7 @@ public class Speaker {
 
     // setting up relationship
     @ManyToMany(mappedBy = "speakers")
+    @JsonIgnore // to avoid cycling of data when we test with postman
     private List<Session> sessions;
 
     //to  get jpa to stream the binary data into the files we need to add more couple of annotations
